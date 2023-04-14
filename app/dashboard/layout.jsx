@@ -11,6 +11,8 @@ import EditColor from '@/components/EditColor'
 import useExportCodeCss from '@/global/useExportCodeCss'
 import ExportCodeCss from '@/components/ExportCodeCss'
 import Button from '@/components/Button'
+import { Toaster } from 'react-hot-toast'
+import { BsCodeSlash } from 'react-icons/bs'
 
 export const social = [
     { name: 'facebook', url: '#', icon: <FaFacebookF size={20} color="#696969" />, colorHover: '', },
@@ -27,7 +29,7 @@ export default function DashboardLayout(
     { children } = { children: React.ReactNode }
 ) {
     const { isVisibleCustomColor } = useCustomColor()
-    const { isVisibleExportCode } = useExportCodeCss()
+    const { isVisibleExportCode, setIsVisibleExportCode } = useExportCodeCss()
     return (
         <>
             <NavBarDashboard />
@@ -42,14 +44,17 @@ export default function DashboardLayout(
                         ))}
                     </div>
                     <div className="flex gap-4">
-                        <Button></Button>
+                        <Button onClick={() => setIsVisibleExportCode(true)}>
+                            <BsCodeSlash size={20} />
+                        </Button>
                     </div>
                 </div>
             </section>
             <AnimatePresence>
                 {isVisibleCustomColor && <EditColor />}
-                {!isVisibleExportCode && <ExportCodeCss />}
+                {isVisibleExportCode && <ExportCodeCss />}
             </AnimatePresence>
+            <Toaster position='bottom-center' />
         </>
     )
 }
