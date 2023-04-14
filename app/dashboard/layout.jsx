@@ -8,6 +8,9 @@ import Anchor from '@/components/Anchor'
 import { AnimatePresence } from 'framer-motion'
 import useCustomColor from '@/global/useCustomColor'
 import EditColor from '@/components/EditColor'
+import useExportCodeCss from '@/global/useExportCodeCss'
+import ExportCodeCss from '@/components/ExportCodeCss'
+import Button from '@/components/Button'
 
 export const social = [
     { name: 'facebook', url: '#', icon: <FaFacebookF size={20} color="#696969" />, colorHover: '', },
@@ -24,6 +27,7 @@ export default function DashboardLayout(
     { children } = { children: React.ReactNode }
 ) {
     const { isVisibleCustomColor } = useCustomColor()
+    const { isVisibleExportCode } = useExportCodeCss()
     return (
         <>
             <NavBarDashboard />
@@ -38,11 +42,13 @@ export default function DashboardLayout(
                         ))}
                     </div>
                     <div className="flex gap-4">
+                        <Button></Button>
                     </div>
                 </div>
             </section>
             <AnimatePresence>
                 {isVisibleCustomColor && <EditColor />}
+                {!isVisibleExportCode && <ExportCodeCss />}
             </AnimatePresence>
         </>
     )

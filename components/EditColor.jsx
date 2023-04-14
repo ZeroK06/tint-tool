@@ -17,7 +17,7 @@ const EditColor = () => {
 
 
     return (
-        <motion.div initial={{ x: 500 }} animate={{ x: 0, transition: { type: 'keyframes' } }} exit={{ x: 500 }} className='h-screen w-full  fixed top-0 left-0'>
+        <motion.div style={{ zIndex: '3' }} initial={{ x: 500 }} animate={{ x: 0, transition: { type: 'keyframes' } }} exit={{ x: 500 }} className='h-screen w-full  fixed top-0 left-0'>
             <div className='h-full w-full fixed top-0 left-0' onClick={() => { setIsVisibleCustomColor(false) }}></div>
             <div className='flex flex-col gap-4 h-screen w-96 fixed top-0 right-0 shadow-2xl bg-white p-6'>
                 <div className='h-20 w-full rounded-xl' style={{ background: currentColor }}></div>

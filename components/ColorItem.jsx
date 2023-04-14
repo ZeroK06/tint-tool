@@ -11,7 +11,8 @@ import { motion } from 'framer-motion'
 const ColorItem = ({ color, identif }) => {
     const [copy, setCopy] = useCopy()
     const [currentColor, setCurrentColor] = useState('')
-    const { setColorState, setIsVisibleCustomColor } = useCustomColor()
+    const { setColorState, setIsVisibleCustomColor, } = useCustomColor()
+    const { removeColorItem } = useColorStore()
     useEffect(() => {
         setCurrentColor(color)
     }, [])
@@ -20,8 +21,8 @@ const ColorItem = ({ color, identif }) => {
     return (
 
         <motion.div initial={{ y: 100, opacity: 0 }} animate={{ y: 0, opacity: 1 }} className='flex flex-col group gap-4 items-center relative'>
-            <button style={{ zIndex: '1' }} className='absolute bg-red-500 rounded-full p-4 opacity-0 top-5  duration-300 group-hover:opacity-100 transition-all group-hover:-top-14 '><HiOutlineXMark size={20} color='#fff' /></button>
-            <label htmlFor={`#color-${identif}`} className='group cursor-pointer z-10'>
+            <button style={{ zIndex: '1' }} onClick={() => removeColorItem(identif)} className='absolute bg-red-500 rounded-full p-4 opacity-0 top-5  duration-300 group-hover:opacity-100 transition-all group-hover:-top-14 '><HiOutlineXMark size={20} color='#fff' /></button>
+            <label style={{ zIndex: '2' }} htmlFor={`#color-${identif}`} className='group cursor-pointer'>
                 <div className='h-60 w-24 rounded-full  overflow-hidden' style={{ background: currentColor }}>
                     <div className='opacity-0 h-full w-full bg-gray-400 bg-opacity-50 flex justify-center items-center transition-opacity duration-300 group-hover:opacity-100 ' onClick={() => { setColorState({ color: currentColor, setColor: setCurrentColor }); setIsVisibleCustomColor(true) }}>
                         <HiPencil color='#fff' size={20} />

@@ -23,5 +23,10 @@ const useColorStore = create(set => ({
   },
   setAllColorGenerate: () =>
     set({ paletteColors: generatePalette({ empty: false, number: 5 }) }),
+  removeColorItem: id =>
+    set(state => ({
+      ...state,
+      paletteColors: state.paletteColors.filter(e => e.id != id),
+    })),
 }))
 export default useColorStore
