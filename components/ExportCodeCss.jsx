@@ -4,17 +4,20 @@ import useExportCodeCss from '@/global/useExportCodeCss'
 import { motion } from 'framer-motion'
 import React, { useEffect, useState } from 'react'
 import useCopy from '../hook/useCopy'
+import useCustomColor from '@/global/useCustomColor'
 
 const ExportCodeCss = () => {
     const { paletteColors } = useColorStore()
     const [code, setCode] = useState('')
+    const { isVisibleCustomColor } = useCustomColor()
     const { setIsVisibleExportCode } = useExportCodeCss()
     const [copy, setCopy] = useCopy()
     useEffect(() => {
-        setCode(() => {
-            return ':root{\n' + paletteColors?.map((e, index) => `\t--color-${index}: ${e.color};`).join('\n') + '\n}'
-        })
-    }, [paletteColors])
+        setCode(':root{\n' + paletteColors?.map((e, index) => `\t--color-${index + 1}: ${e.color};`).join('\n') + '\n}')
+    }, [paletteColors, isVisibleCustomColor])
+    useEffect(() => {
+        setCode(':root{\n' + paletteColors?.map((e, index) => `\t--color-${index + 1}: ${e.color};`).join('\n') + '\n}')
+    }, [])
 
 
     return (

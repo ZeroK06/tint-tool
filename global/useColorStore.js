@@ -1,15 +1,22 @@
 'use client'
 import { generatePalette } from '@/services/generatePalette'
+import { toast } from 'react-hot-toast'
 
 const { create } = require('zustand')
 
 const useColorStore = create(set => ({
   paletteColors: [],
   addColor: value =>
-    set(state => ({
-      ...state,
-      paletteColors: [...state.paletteColors, value],
-    })),
+    set(state => {
+      if (state.paletteColors.length != 9) {
+        return {
+          ...state,
+          paletteColors: [...state.paletteColors, value],
+        }
+      }
+      toast.error('No puedes mas de 9 colores, lo siento!')
+      return state
+    }),
   setAllColors: arr => set({ paletteColors: arr }),
   editOneColor: (value, id) => {
     set(state => ({

@@ -1,0 +1,13 @@
+<svg id="Capa_1" data-name="Capa 1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 315.2 320">
+  <defs>
+    <linearGradient id="Degradado_1" data-name="Degradado 1" x1="140" y1="194.65" x2="180" y2="125.35" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#f292ed"/>
+      <stop offset="0.31" stop-color="#f282be"/>
+      <stop offset="0.78" stop-color="#f36c7d"/>
+      <stop offset="1" stop-color="#f36364"/>
+    </linearGradient>
+    <linearGradient id="Degradado_1-2" x1="315.05" y1="517.62" x2="475.07" y2="240.45" xlink:href="#Degradado_1"/>
+  </defs>
+  <circle cx="160" cy="160" r="40" style="fill: url(#Degradado_1)"/>
+  <path d="M471.13,419a86,86,0,0,1-83.63,45.68c-38.23-3.24-73.71-37.69-77.95-75.83A86,86,0,0,1,471.64,340H550.2A160,160,0,0,0,391.48,219c-86.17,1.85-155.87,72.61-156.48,158.8A160,160,0,0,0,550,419Z" transform="translate(-235 -219)" style="fill: url(#Degradado_1-2)"/>
+</svg>

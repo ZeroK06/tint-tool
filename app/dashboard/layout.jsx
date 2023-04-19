@@ -50,7 +50,7 @@ export default function DashboardLayout(
                     </div>
                 </div>
             </section>
-            <AnimatePresence>
+            <AnimatePresence mode='wait'>
                 {isVisibleCustomColor && <EditColor />}
                 {isVisibleExportCode && <ExportCodeCss />}
             </AnimatePresence>
