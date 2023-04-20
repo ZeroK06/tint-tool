@@ -29,19 +29,24 @@ const ItemNavBar = ({ items, name, uri }) => {
                 onClick={() => setIsActive(!isActive)}
             >
                 {name}
-                <TfiAngleDown />
+                <TfiAngleDown style={{ transform: `rotate(${isActive ? '180deg' : '0deg'})` }} className='transition-transform' />
             </label>
             {
                 isActive && (
                     <AnimatePresence mode='wait'>
-                        <motion.div style={{ minWidth: '200px', gridTemplateColumns: 'repeat(3,200px)' }} initial={{ y: 100, opacity: 0 }}
+                        <motion.div style={{ minWidth: '200px', gridTemplateColumns: '1fr' }} initial={{ y: -100, opacity: 0 }}
                             animate={{ y: 0, opacity: 1, transition: { type: 'keyframes', duration: 0.3 } }}
-                            exit={{ y: 100, opacity: 0 }}
-                            className="absolute left-0 top-20 p-3 bg-white gap-1  shadow-2xl shadow-gray-300 rounded-md grid">
+                            exit={{ y: -100, opacity: 0 }}
+                            className="absolute left-0 top-20 p-3 bg-white gap-2  shadow-2xl shadow-gray-300 rounded-3xl grid">
                             {items.map((element, index) => (
-                                <label style={{ width: '200px' }} className='px-2 py-1 ' key={index}>{element.name}</label>
+                                <label style={{ width: '300px', minHeight: '60px' }} className='flex gap-5 justify-start items-center px-5 py-2 rounded-lg hover:bg-orange-50 transition' key={index}>
+                                    <img src="/icon-nav.svg" alt="" className='h-12' />
+                                    <div className='flex flex-col'>
+                                        <span className='font-bold text-sm text-gray-600'>{element.name}</span>
+                                        <span className='font-normal text-sm text-gray-400'>{element.descrip}Es una herramienta la cual facilita la...</span>
+                                    </div>
+                                </label>
                             ))}
-                            aaaaaaaaaa
                         </motion.div>
                     </AnimatePresence>
                 )
