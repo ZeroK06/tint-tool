@@ -7,7 +7,19 @@ export const menu = [{
     name: 'Herramientas',
     items: [{
         icon: '',
-        name: 'as',
+        name: 'Generador de Gradientes',
+        uri: '',
+    }, {
+        icon: '',
+        name: 'Generador de Paletas',
+        uri: '',
+    }, {
+        icon: '',
+        name: 'Generador de Mesh',
+        uri: '',
+    }, {
+        icon: '',
+        name: 'Imagen a Paleta',
         uri: '',
     }]
 }, {
