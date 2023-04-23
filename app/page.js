@@ -4,7 +4,8 @@ import { Inter } from 'next/font/google'
 import NavBarDashboard from '@/components/NavBarDashboard'
 import useInterval from '@/hook/useInterval'
 import { useEffect, useState } from 'react'
-
+import { AnimatePresence, motion } from 'framer-motion'
+import Slide from '@/components/Slide'
 const inter = Inter({ subsets: ['latin'] })
 const SLIDER_DIV = [
   {
@@ -32,9 +33,9 @@ const SLIDER_DIV = [
 export default function Home() {
   const [slider, setSlider] = useState(SLIDER_DIV)
   const [slideIndex, setSlideIndex] = useState(0)
-  /* useInterval(() => {
-    console.log('hello')
-  }, 5000) */
+  useInterval(() => {
+    handleNextSlider()
+  }, 5000)
 
   const handleNextSlider = () => {
     if (slider.length - 1 == slideIndex) {
@@ -61,13 +62,9 @@ export default function Home() {
       <main style={{ height: 'calc(100vh - 80px)' }} className="bg-gray-400">
         <button onClick={handleNextSlider}>{'>'}</button>
         <button onClick={handleFormerSlider}>{'<'}</button>
-        {slider
-          .filter(item => item.id == slideIndex)
-          .map((element, index) => (
-            <div key={index} className="h-full w-full">
-              {element.name}
-            </div>
-          ))}
+        <div className="slider">
+          <Slide data={slider[slideIndex]} key={slider[slideIndex].id}></Slide>
+        </div>
       </main>
     </>
   )
