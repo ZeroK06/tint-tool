@@ -37,7 +37,7 @@ const ItemNavBar = ({ items, name, uri }) => {
                         <motion.div style={{ minWidth: '200px', gridTemplateColumns: '1fr' }} initial={{ y: -100, opacity: 0 }}
                             animate={{ y: 0, opacity: 1, transition: { type: 'keyframes', duration: 0.3 } }}
                             exit={{ y: -100, opacity: 0 }}
-                            className="absolute left-0 top-20 p-3 bg-white gap-2  shadow-2xl shadow-gray-300 rounded-3xl grid">
+                            className="absolute left-0 top-20 p-3 z-50 bg-white gap-2  shadow-2xl shadow-gray-300 rounded-3xl grid">
                             {items.map((element, index) => (
                                 <label style={{ width: '300px', minHeight: '60px' }} className='flex gap-5 justify-start items-center px-5 py-2 rounded-lg hover:bg-orange-50 transition' key={index}>
                                     <img src="/icon-nav.svg" alt="" className='h-12' />
