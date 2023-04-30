@@ -1,4 +1,3 @@
-'use client'
 import { Inter } from 'next/font/google'
 import NavBarDashboard from '@/components/NavBarDashboard'
 import SliderHome from '@/components/SliderHome'
@@ -9,7 +8,7 @@ export default function Home() {
     <>
       <NavBarDashboard />
       <main style={{ height: 'calc(100vh - 80px)' }}>
-        <div className="slider h-full w-full">
+        <div className="slider h-full w-full relative home-gradient-background z-0">
           <SliderHome />
         </div>
       </main>

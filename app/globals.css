@@ -50,3 +50,27 @@
     width: 30px;
     height: 30px;
 }
+
+.home-gradient-background::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 500px;
+    width: 600px;
+    z-index: -1;
+    border-radius: 100%;
+    background: rgba(255, 107, 107, 0.4);
+}
+
+.home-gradient-background::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    height: 500px;
+    width: 800px;
+    z-index: -1;
+    border-radius: 100%;
+    background: rgba(242, 105, 224, 0.5);
+}

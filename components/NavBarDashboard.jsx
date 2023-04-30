@@ -1,6 +1,6 @@
+'use client'
 import Link from 'next/link'
 import React from 'react'
-import { TfiAngleDown } from 'react-icons/tfi'
 import ItemNavBar from './ItemNavBar'
 export const menu = [{
     id: 1,
