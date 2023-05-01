@@ -5,6 +5,7 @@ import { AnimatePresence } from 'framer-motion'
 import GeneratePalette from './SliderPages/GeneratePalette'
 import GenerateMesh from './SliderPages/GenerateMesh'
 import GenerateGradient from './SliderPages/GenerateGradient'
+import { HiArrowLongLeft, HiArrowLongRight } from 'react-icons/hi2'
 
 export const SLIDER_DIV = [
     <GeneratePalette />,
@@ -39,7 +40,9 @@ const SliderHome = () => {
     }, [slideIndex]) */
     return (
         <AnimatePresence mode="wait">
-            <div className='h-full w-full bg-gradient-to-br from-transparent to-white  backdrop-blur-3xl'>
+            <div className='h-full w-full bg-gradient-to-br from-transparent to-white relative  backdrop-blur-3xl'>
+                <button onClick={handleFormerSlider} className='absolute left-10 top-1/2 p-4 hover:bg-gray-50'><HiArrowLongLeft size={20} /></button>
+                <button onClick={handleNextSlider} className='absolute right-10 top-1/2 p-4 hover:bg-gray-50'><HiArrowLongRight size={20} /></button>
                 {slider[slideIndex]}
             </div>
         </AnimatePresence>
